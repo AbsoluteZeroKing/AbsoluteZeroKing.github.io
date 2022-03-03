@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>强化学习价值迭代与桥畅通 | Leesdog的博客</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="alternate" type="application/rss+xml" href="https://example.vuepress-theme-blog.billyyyyy3320.com/rss.xml" title="Leesdog的博客 RSS Feed">
+    <meta name="description" content="第一题实际上就是要我们使用强化学习中的价值迭代法来更新完成整个矩阵的权值">
+    
+    <link rel="preload" href="/assets/css/0.styles.60a10e49.css" as="style"><link rel="preload" href="/assets/js/app.ee97df8f.js" as="script"><link rel="preload" href="/assets/js/7.ac404b9a.js" as="script"><link rel="preload" href="/assets/js/5.7b7cf407.js" as="script"><link rel="preload" href="/assets/js/31.266c0527.js" as="script"><link rel="preload" href="/assets/js/8.b02a8171.js" as="script"><link rel="prefetch" href="/assets/js/10.ae5cb994.js"><link rel="prefetch" href="/assets/js/11.5014d578.js"><link rel="prefetch" href="/assets/js/12.27daf7f8.js"><link rel="prefetch" href="/assets/js/13.2c5e2571.js"><link rel="prefetch" href="/assets/js/14.b33af101.js"><link rel="prefetch" href="/assets/js/15.1e840a07.js"><link rel="prefetch" href="/assets/js/16.38daadbf.js"><link rel="prefetch" href="/assets/js/17.84b7c4ed.js"><link rel="prefetch" href="/assets/js/18.43381c27.js"><link rel="prefetch" href="/assets/js/19.b37aff45.js"><link rel="prefetch" href="/assets/js/20.169aefa2.js"><link rel="prefetch" href="/assets/js/21.aebd7e03.js"><link rel="prefetch" href="/assets/js/22.6dd904da.js"><link rel="prefetch" href="/assets/js/23.187e2dbe.js"><link rel="prefetch" href="/assets/js/24.fbf066c4.js"><link rel="prefetch" href="/assets/js/25.079bbf4d.js"><link rel="prefetch" href="/assets/js/26.7939fd1e.js"><link rel="prefetch" href="/assets/js/27.c846cf16.js"><link rel="prefetch" href="/assets/js/28.93bf2646.js"><link rel="prefetch" href="/assets/js/29.4359646b.js"><link rel="prefetch" href="/assets/js/3.09d94a24.js"><link rel="prefetch" href="/assets/js/30.06365a24.js"><link rel="prefetch" href="/assets/js/32.2dbb722b.js"><link rel="prefetch" href="/assets/js/33.d27f2f5b.js"><link rel="prefetch" href="/assets/js/34.c5f4f4b8.js"><link rel="prefetch" href="/assets/js/4.7d2ea1e7.js"><link rel="prefetch" href="/assets/js/6.06fc81ac.js"><link rel="prefetch" href="/assets/js/9.0d6b80d6.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.e0d5157c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.60a10e49.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><header class="header"><div class="headerTitle"><a href="/" class="nav-link headerTitleLink">Leesdog的博客 </a></div> <div class="headerTags"><ul class="headerTagsNav"><li class="headerTagsNavItem"><a href="/" class="nav-link">首页</a></li><li class="headerTagsNavItem"><a href="/blog/" class="nav-link">记录</a></li><li class="headerTagsNavItem"><a href="/tags/" class="nav-link">标签</a></li><li class="headerTagsNavItem"><a href="/about/" class="nav-link">关于</a></li></ul></div> <div id="headerComponent"><div id="searchBox" class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <a href="/rss.xml" class="feed feed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></div></header> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">Leesdog的博客 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link">首页</a></li><li class="mobile-nav-item"><a href="/blog/" class="nav-link">记录</a></li><li class="mobile-nav-item"><a href="/tags/" class="nav-link">标签</a></li><li class="mobile-nav-item"><a href="/about/" class="nav-link">关于</a></li> <li class="mobile-nav-item"><a href="/rss.xml" class="feed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        强化学习价值迭代与桥畅通
+      </h1> <div class="post-meta"><!----> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-06-08T20:54:58.541Z">
+      2021-06-08 20:54
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-5b1568b2><a href="/tags/AI" data-v-5b1568b2><span data-v-5b1568b2>AI</span></a></li><li class="post-tag" data-v-5b1568b2><a href="/tags/算法" data-v-5b1568b2><span data-v-5b1568b2>算法</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><h1 id="强化学习价值迭代与桥畅通"><a href="#强化学习价值迭代与桥畅通" class="header-anchor">#</a> 强化学习价值迭代与桥畅通</h1> <blockquote><p>题目链接：https://inst.eecs.berkeley.edu//~cs188/sp20/project3/</p></blockquote> <h2 id="q1-value-iteration"><a href="#q1-value-iteration" class="header-anchor">#</a> Q1:Value Iteration</h2> <p>第一题实际上就是要我们使用强化学习中的价值迭代法来更新完成整个矩阵的权值，由于我课上听的其实不是很懂，所以需要课下再学习一下价值迭代法：</p> <p>首先我们已经在课上知道了马尔科夫决策的过程（MDP），总结起来就是三个部分：</p> <ul><li><strong>状态空间State</strong>（S）</li> <li><strong>决策空间Action</strong>(A)</li> <li><strong>Action对State的影响和回报P</strong>(State', Reward | State, Action)</li></ul> <p>其实比较关键的就是最后的P值如何计算，针对这一题每一轮的计算其实都是分成以下几个步骤</p> <ul><li><p>对于每个state，逐一尝试上、下、左、右四个Action</p></li> <li><ul><li>记录Action带来的Reward、以及新状态 V(s')</li> <li>选择最优的Action，保存V(s) = Reward + V(s') （不是立刻更新）</li></ul></li></ul> <p>这里有两个关键点容易搞错，也是价值迭代的关键所在</p> <ul><li>每一次的state迭代只在整个迭代完成后统一更新每一个state的value值，即做到当前state的计算只跟上一轮的状态有关，而不会因为本轮的计算而被影响</li> <li>state所拿到的Reward并不是走到以后拿到，而是在自己在当前位置时再走一步的时候拿到，这也是老师上课时讲的奖励滞后</li></ul> <p>最后套上价值迭代的公式即可
+$$
+V_{<em>}(s)=\max <em>{a} \sum</em>{s^{\prime}, r} p\left(s^{\prime}, r \mid s, a\right)\left[r+\gamma V_{</em>}\left(s^{\prime}\right)\right]
+$$</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">ValueIterationAgent</span><span class="token punctuation">(</span>ValueEstimationAgent<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        * Please read learningAgents.py before reading this.*
+
+        A ValueIterationAgent takes a Markov decision process
+        (see mdp.py) on initialization and runs value iteration
+        for a given number of iterations using the supplied
+        discount factor.
+    &quot;&quot;&quot;</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mdp<span class="token punctuation">,</span> discount <span class="token operator">=</span> <span class="token number">0.9</span><span class="token punctuation">,</span> iterations <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">&quot;&quot;&quot;
+          Your value iteration agent should take an mdp on
+          construction, run the indicated number of iterations
+          and then act according to the resulting policy.
+
+          Some useful mdp methods you will use:
+              mdp.getStates()
+              mdp.getPossibleActions(state)
+              mdp.getTransitionStatesAndProbs(state, action)
+              mdp.getReward(state, action, nextState)
+              mdp.isTerminal(state)
+        &quot;&quot;&quot;</span>
+        self<span class="token punctuation">.</span>mdp <span class="token operator">=</span> mdp
+        self<span class="token punctuation">.</span>discount <span class="token operator">=</span> discount
+        self<span class="token punctuation">.</span>iterations <span class="token operator">=</span> iterations
+        self<span class="token punctuation">.</span>values <span class="token operator">=</span> util<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># A Counter is a dict with default 0</span>
+        self<span class="token punctuation">.</span>runValueIteration<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">runValueIteration</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Write value iteration code here</span>
+        next_values <span class="token operator">=</span> self<span class="token punctuation">.</span>values<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> iter_nums <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>iterations<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> state <span class="token keyword">in</span> self<span class="token punctuation">.</span>mdp<span class="token punctuation">.</span>getStates<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> self<span class="token punctuation">.</span>mdp<span class="token punctuation">.</span>isTerminal<span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+                <span class="token comment">#从上下左右的可能行动中找到Qvalue最大的一次</span>
+                next_values<span class="token punctuation">[</span>state<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token punctuation">[</span>self<span class="token punctuation">.</span>getQValue<span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+                                          <span class="token keyword">for</span> action <span class="token keyword">in</span> self<span class="token punctuation">.</span>mdp<span class="token punctuation">.</span>getPossibleActions<span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>values <span class="token operator">=</span> next_values<span class="token punctuation">.</span>copy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">getValue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">&quot;&quot;&quot;
+          Return the value of the state (computed in __init__).
+        &quot;&quot;&quot;</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>values<span class="token punctuation">[</span>state<span class="token punctuation">]</span>
+
+
+    <span class="token keyword">def</span> <span class="token function">computeQValueFromValues</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">&quot;&quot;&quot;
+          Compute the Q-value of action in state from the
+          value function stored in self.values.
+        &quot;&quot;&quot;</span>
+        successors <span class="token operator">=</span> self<span class="token punctuation">.</span>mdp<span class="token punctuation">.</span>getTransitionStatesAndProbs<span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+        qval <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> next_state<span class="token punctuation">,</span> prob <span class="token keyword">in</span> successors<span class="token punctuation">:</span>
+            <span class="token comment">#根据公式计算q值</span>
+            qval <span class="token operator">+=</span> prob <span class="token operator">*</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>mdp<span class="token punctuation">.</span>getReward<span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">,</span> next_state<span class="token punctuation">)</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>discount <span class="token operator">*</span> self<span class="token punctuation">.</span>getValue<span class="token punctuation">(</span>next_state<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> qval
+        util<span class="token punctuation">.</span>raiseNotDefined<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">computeActionFromValues</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">&quot;&quot;&quot;
+          The policy is the best action in the given state
+          according to the values currently stored in self.values.
+
+          You may break ties any way you see fit.  Note that if
+          there are no legal actions, which is the case at the
+          terminal state, you should return None.
+        &quot;&quot;&quot;</span>
+        policy <span class="token operator">=</span> util<span class="token punctuation">.</span>Counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment">#从上下左右中可能的行动中获取在policy下的Q值，并使用封装好的argMax返回Q值最大的结果</span>
+        <span class="token keyword">for</span> action <span class="token keyword">in</span> self<span class="token punctuation">.</span>mdp<span class="token punctuation">.</span>getPossibleActions<span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            policy<span class="token punctuation">[</span>action<span class="token punctuation">]</span> <span class="token operator">=</span> self<span class="token punctuation">.</span>getQValue<span class="token punctuation">(</span>state<span class="token punctuation">,</span>  action<span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> policy<span class="token punctuation">.</span>argMax<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        util<span class="token punctuation">.</span>raiseNotDefined<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">getPolicy</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>computeActionFromValues<span class="token punctuation">(</span>state<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">getAction</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token string">&quot;Returns the policy at the state (no exploration).&quot;</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>computeActionFromValues<span class="token punctuation">(</span>state<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">getQValue</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> state<span class="token punctuation">,</span> action<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>computeQValueFromValues<span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+</code></pre></div><p>执行</p> <div class="language-shell extra-class"><pre class="language-text"><code>python autograder.py -q q1
+</code></pre></div><p><img src="https://image.leesdog.space/ai410.png" alt="image-20210608202851742"></p> <p>执行</p> <div class="language-shell extra-class"><pre class="language-text"><code>python gridworld.py -a value -i 100 -k 10
+</code></pre></div><p><img src="https://image.leesdog.space/ai402.png" alt="image-20210608201112641"></p> <p><img src="https://image.leesdog.space/ai403.png" alt="image-20210608201245588"></p> <p>执行</p> <div class="language-shell extra-class"><pre class="language-text"><code>python gridworld.py -a value -i 5
+</code></pre></div><p><img src="https://image.leesdog.space/ai407.png" alt="image-20210608201344698"></p> <p><img src="https://image.leesdog.space/ai406.png" alt="image-20210608201327905"></p> <h2 id="q2-bridge-crossing-analysis"><a href="#q2-bridge-crossing-analysis" class="header-anchor">#</a> Q2 Bridge Crossing Analysis</h2> <p>第二题其实就是让我们通过这样一个桥梁测试，同时只让我们改noise和discount中的一个参数；</p> <p><strong>noise</strong>就是其决策时的噪声，该值越大其决策的随机性越高；</p> <p><strong>discount</strong>其实就是γ，也就是每走一步所乘的权值</p> <p>要通过该测试，其实分析一下题目的情况就可以了</p> <p><img src="https://image.leesdog.space/ai408.png" alt="image-20210608202343748"></p> <p>可以看到我们希望他向右一直走，而不要向上下偏移，在这种情况下其实就是起点到终点<strong>走路径最短的一条路</strong>；要让程序如此行动，其实可以有两种方式，一种方式是将discount调整到使得正值偏大的一个地方，即使得下面式子整体偏大；还有一种方式是将noise调小，这样使得偏向走-100的概率变小，其实也是将整体Q值调大，这里将answerNoise调成0.001即可通过测试
+$$
+R_{t+1}+\gamma R_{t+2}+\gamma^{2} R_{t+3}+\gamma^{3} R_{t+4}+\ldots
+$$
+<img src="https://image.leesdog.space/ai412.png" alt="image-20210608204123625"></p> <h2 id="q3-policies"><a href="#q3-policies" class="header-anchor">#</a> Q3:Policies</h2> <p>这一题的情况如下</p> <p><img src="https://image.leesdog.space/AI415.png" alt="image-20210608204416040"></p> <p>他需要我们调整参数以完成以下5个策略：</p> <ol><li>更喜欢关闭退出（+1），冒着悬崖的风险（-10）</li> <li>更喜欢关闭退出（+1），但要避开悬崖（-10）</li> <li>偏爱远处出口（+10），冒着悬崖（-10）</li> <li>喜欢远处的出口（+10），避开悬崖（-10）</li> <li>避免出口和悬崖（因此一集永远不应该终止）</li></ol> <p>其实要完成这些结果，核心点在于去根据公式计算其最终的value是否是导致其朝着既定的方向走即可，只要首先把握一个大的方向即可：</p> <p>当更喜欢冒着悬崖的风险的时候此时走的路径较短，所以我们应该加大每走一步的惩罚Reward；</p> <p>当更喜欢远处出口的时候，可以加大每走一步的奖励Reward使其更愿意走向较远的出口；</p> <p>同时noise其实都可以调到很小（甚至调成0也行）使其更愿意执行你所设定的方向</p> <p>然后随便调一调就可以了</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">question3a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    answerDiscount <span class="token operator">=</span> <span class="token number">0.01</span>
+    answerNoise <span class="token operator">=</span> <span class="token number">0</span>
+    answerLivingReward <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">return</span> answerDiscount<span class="token punctuation">,</span> answerNoise<span class="token punctuation">,</span> answerLivingReward
+    <span class="token comment"># If not possible, return 'NOT POSSIBLE'</span>
+
+<span class="token keyword">def</span> <span class="token function">question3b</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    answerDiscount <span class="token operator">=</span> <span class="token number">0.01</span>
+    answerNoise <span class="token operator">=</span> <span class="token number">0.01</span>
+    answerLivingReward <span class="token operator">=</span> <span class="token number">0.5</span>
+    <span class="token keyword">return</span> answerDiscount<span class="token punctuation">,</span> answerNoise<span class="token punctuation">,</span> answerLivingReward
+    <span class="token comment"># If not possible, return 'NOT POSSIBLE'</span>
+
+<span class="token keyword">def</span> <span class="token function">question3c</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    answerDiscount <span class="token operator">=</span> <span class="token number">0.9</span>
+    answerNoise <span class="token operator">=</span> <span class="token number">0</span>
+    answerLivingReward <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+    <span class="token keyword">return</span> answerDiscount<span class="token punctuation">,</span> answerNoise<span class="token punctuation">,</span> answerLivingReward
+    <span class="token comment"># If not possible, return 'NOT POSSIBLE'</span>
+
+<span class="token keyword">def</span> <span class="token function">question3d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    answerDiscount <span class="token operator">=</span> <span class="token number">0.9</span>
+    answerNoise <span class="token operator">=</span> <span class="token number">0.2</span>
+    answerLivingReward <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> answerDiscount<span class="token punctuation">,</span> answerNoise<span class="token punctuation">,</span> answerLivingReward
+    <span class="token comment"># If not possible, return 'NOT POSSIBLE'</span>
+
+<span class="token keyword">def</span> <span class="token function">question3e</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    answerDiscount <span class="token operator">=</span> <span class="token number">0</span>
+    answerNoise <span class="token operator">=</span> <span class="token number">0.1</span>
+    answerLivingReward <span class="token operator">=</span> <span class="token number">10</span>
+    <span class="token keyword">return</span> answerDiscount<span class="token punctuation">,</span> answerNoise<span class="token punctuation">,</span> answerLivingReward
+</code></pre></div><p>最终结果：</p> <p><img src="https://image.leesdog.space/ai420.png" alt="image-20210608204622649"></p></div> <footer></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#q1-value-iteration" title="Q1:Value Iteration">Q1:Value Iteration</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#q2-bridge-crossing-analysis" title="Q2 Bridge Crossing Analysis">Q2 Bridge Crossing Analysis</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#q3-policies" title="Q3:Policies">Q3:Policies</a></div></div></div></div> <footer class="footer" data-v-c7481560><div class="footer-left-wrap" data-v-c7481560><ul class="contact" data-v-c7481560><li class="contact-item" data-v-c7481560><a href="https://github.com/AbsoluteZeroKing" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-c7481560><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-c7481560></path></svg>
+          
+        </a></li><li class="contact-item" data-v-c7481560><a href="mailto:1932940046@qq.com" class="nav-link external" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" data-v-c7481560><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" data-v-c7481560></path><polyline points="22,6 12,13 2,6" data-v-c7481560></polyline></svg>
+          
+        </a></li><li class="contact-item" data-v-c7481560><a href="/" class="nav-link" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square" data-v-c7481560><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" data-v-c7481560></path></svg>
+          
+        </a></li><li class="contact-item" data-v-c7481560><a href="/" class="nav-link" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-music" data-v-c7481560><path d="M9 18V5l12-2v13" data-v-c7481560></path><circle cx="6" cy="18" r="3" data-v-c7481560></circle><circle cx="18" cy="16" r="3" data-v-c7481560></circle></svg>
+          
+        </a></li><li class="contact-item" data-v-c7481560><a href="tel:18064044601" class="nav-link external" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone" data-v-c7481560><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" data-v-c7481560></path></svg>
+          
+        </a></li><li class="contact-item" data-v-c7481560><a href="/" class="nav-link" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video" data-v-c7481560><polygon points="23 7 16 12 23 17 23 7" data-v-c7481560></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2" data-v-c7481560></rect></svg>
+          
+        </a></li><li class="contact-item" data-v-c7481560><a href="https://leesdog.space/" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-c7481560><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe" data-v-c7481560><circle cx="12" cy="12" r="10" data-v-c7481560></circle><line x1="2" y1="12" x2="22" y2="12" data-v-c7481560></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" data-v-c7481560></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-c7481560><ul class="copyright" data-v-c7481560><li class="copyright-item" data-v-c7481560><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-c7481560>鄂ICP备19020804号-2</a></li><li class="copyright-item" data-v-c7481560>MIT Licensed</li></ul></div></footer></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.ee97df8f.js" defer></script><script src="/assets/js/7.ac404b9a.js" defer></script><script src="/assets/js/5.7b7cf407.js" defer></script><script src="/assets/js/31.266c0527.js" defer></script><script src="/assets/js/8.b02a8171.js" defer></script>
+  </body>
+</html>

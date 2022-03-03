@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Leesdog的博客</title>
+        <link>https://example.vuepress-theme-blog.billyyyyy3320.com/</link>
+        <description>李曾帅的个人博客</description>
+        <lastBuildDate>Thu, 03 Mar 2022 11:23:55 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
+        <item>
+            <title><![CDATA[A算法与D算法]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/05/13/a-%E7%AE%97%E6%B3%95%E4%B8%8Ed-%E7%AE%97%E6%B3%95-ai1/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/05/13/a-%E7%AE%97%E6%B3%95%E4%B8%8Ed-%E7%AE%97%E6%B3%95-ai1/</guid>
+            <pubDate>Thu, 13 May 2021 01:18:38 GMT</pubDate>
+            <description><![CDATA[A*算法相较深度优先广度优先，最大的改进在于其有方向性的试探以及展望和回顾的结合]]></description>
+            <enclosure url="https://image.leesdog.space/100.gif">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[JS事件循环机制EventLoop]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/12/29/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6eventloop-js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6eventloop/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/12/29/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6eventloop-js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6eventloop/</guid>
+            <pubDate>Wed, 29 Dec 2021 19:08:47 GMT</pubDate>
+            <description><![CDATA[JS是一门单线程的非阻塞的脚本语言，即使在后来引入了Html5引入了Web Worker概念使其能在另外一个线程]]></description>
+            <enclosure url="http://leesdog.oss-cn-shanghai.aliyuncs.com/image_1642066200864.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[JS作用域与变量提升、new与this指向、原型与原型链]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/12/27/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81new%E4%B8%8Ethis%E6%8C%87%E5%90%91%E3%80%81%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE-variablepromotionprototypesandprototypechains/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/12/27/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E3%80%81new%E4%B8%8Ethis%E6%8C%87%E5%90%91%E3%80%81%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE-variablepromotionprototypesandprototypechains/</guid>
+            <pubDate>Mon, 27 Dec 2021 18:10:44 GMT</pubDate>
+            <description><![CDATA[JS的作用域和Java有一定区别，虽然名字上也分为局部作用域和全局作用域]]></description>
+            <enclosure url="https://image.leesdog.space/JS%E5%8E%9F%E5%9E%8B%E9%93%BE.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Mysql数据库简单设计]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/01/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E8%AE%BE%E8%AE%A1-mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1md/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/01/18/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E8%AE%BE%E8%AE%A1-mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1md/</guid>
+            <pubDate>Mon, 18 Jan 2021 23:40:27 GMT</pubDate>
+            <description><![CDATA[这一篇博客主要想总结一下关于具体项目数据库设计过程中我会遇到的问题与知识点，所以我会具体根据一个简单项目来完整的将数据库设计流程走一遍，同时做知识点总结]]></description>
+            <enclosure url="http://image.leesdog.space/dbset1.jpg">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Q-learning与ε-greedy]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/14/q-learning%E4%B8%8E%CE%B5-greedy-ai5/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/14/q-learning%E4%B8%8E%CE%B5-greedy-ai5/</guid>
+            <pubDate>Mon, 14 Jun 2021 22:50:19 GMT</pubDate>
+            <description><![CDATA[这一题在经过之前课上的讲解以后比较清楚了,关键公式就是下面的式子：]]></description>
+            <enclosure url="https://cdn.mathpix.com/snip/images/GsNSYWyu5Uq_vivGWWbCMRHRUVWzNtf_YKUroSoElHc.original.fullsize.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[ReflexAgent与Minimax算法]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/05/13/reflexagent%E4%B8%8Eminimax%E7%AE%97%E6%B3%95-ai2/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/05/13/reflexagent%E4%B8%8Eminimax%E7%AE%97%E6%B3%95-ai2/</guid>
+            <pubDate>Thu, 13 May 2021 01:13:35 GMT</pubDate>
+            <description><![CDATA[我们需要做的就是设计一个更好的评估函数，主要的计算思想是计算自己当前位置与食物以及ghost的曼哈顿距离]]></description>
+            <enclosure url="https://image.leesdog.space/ait1.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Qt小项目-图形绘画系统与简易楼盘抽奖]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/08/01/qt%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E5%9B%BE%E5%BD%A2%E7%BB%98%E7%94%BB%E7%B3%BB%E7%BB%9F%E4%B8%8E%E7%AE%80%E6%98%93%E6%A5%BC%E7%9B%98%E6%8A%BD%E5%A5%96-qt-xiao-xiang-mu-tu-xing-hui-hua-xi-tong-yu-jian-yi-lou-pan-chou-jiang/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/08/01/qt%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E5%9B%BE%E5%BD%A2%E7%BB%98%E7%94%BB%E7%B3%BB%E7%BB%9F%E4%B8%8E%E7%AE%80%E6%98%93%E6%A5%BC%E7%9B%98%E6%8A%BD%E5%A5%96-qt-xiao-xiang-mu-tu-xing-hui-hua-xi-tong-yu-jian-yi-lou-pan-chou-jiang/</guid>
+            <pubDate>Sun, 01 Aug 2021 15:13:16 GMT</pubDate>
+            <description><![CDATA[建立一个基本图形编绘系统，利用鼠标进行各种图形绘制，创建菜单、工具条，响应绘制消息，绘制图形。]]></description>
+            <enclosure url="https://image.leesdog.space/clip_image002.gif">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[cs架构udptcp报文重构项目-计算机网络]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2020/04/30/cs%E6%9E%B6%E6%9E%84udptcp%E6%8A%A5%E6%96%87%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-cs%E6%9E%B6%E6%9E%84udptcp%E6%8A%A5%E6%96%87%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2020/04/30/cs%E6%9E%B6%E6%9E%84udptcp%E6%8A%A5%E6%96%87%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-cs%E6%9E%B6%E6%9E%84udptcp%E6%8A%A5%E6%96%87%E9%87%8D%E6%9E%84%E9%A1%B9%E7%9B%AE-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+            <pubDate>Thu, 30 Apr 2020 14:14:58 GMT</pubDate>
+            <description><![CDATA[整个系统需要完成一个迷你魔兽的搭建，包括游戏逻辑与客户端服务器的网络交互]]></description>
+            <enclosure url="https://leesdog.space/upload/2021/02/%E8%AE%A1%E5%9B%BE-651a2290113f4e4e85b92a5599071fcc.png">
+            </enclosure>
+        </item>
+        <item>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/blog/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/blog/</guid>
+            <pubDate>Thu, 03 Mar 2022 11:23:55 GMT</pubDate>
+            <description><![CDATA[...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[女朋友的Web课程基础小题]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/16/%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9A%84web%E8%AF%BE%E7%A8%8B%E5%9F%BA%E7%A1%80%E5%B0%8F%E9%A2%98-zqy1/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/16/%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9A%84web%E8%AF%BE%E7%A8%8B%E5%9F%BA%E7%A1%80%E5%B0%8F%E9%A2%98-zqy1/</guid>
+            <pubDate>Wed, 16 Jun 2021 18:30:19 GMT</pubDate>
+            <description><![CDATA[李曾帅著
+
+单项选择题
+
+常用表单元素的标签名及主要属性
+
+详见这个地址：
+
+https://www.w3school.com.cn/tags/index.asp
+
+里面包含了所有html元素标签与其属性，需要关注的是这几个：
+
+form: 定义供用户输入的表单。
+fieldset: 定义域。即输入区加有文字的边框。
+**lege ...]]></description>
+            <enclosure url="https://image.leesdog.space/zqyh1.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[女朋友的Web课程填空篇]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/16/%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9A%84web%E8%AF%BE%E7%A8%8B%E5%A1%AB%E7%A9%BA%E7%AF%87-zqy2/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/16/%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9A%84web%E8%AF%BE%E7%A8%8B%E5%A1%AB%E7%A9%BA%E7%AF%87-zqy2/</guid>
+            <pubDate>Wed, 16 Jun 2021 19:33:49 GMT</pubDate>
+            <description><![CDATA[填空题
+
+如何设定HTML文档的编码为utf-8？
+
+将下面这行代码放到 \ 标签之中：
+
+例如：
+
+![image-20210616184114432](https://image.lees ...]]></description>
+            <enclosure url="https://image.leesdog.space/zqyh10.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[女朋友的Web课程大题篇]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/20/%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9A%84web%E8%AF%BE%E7%A8%8B%E5%A4%A7%E9%A2%98%E7%AF%87-zqy3/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/20/%E5%A5%B3%E6%9C%8B%E5%8F%8B%E7%9A%84web%E8%AF%BE%E7%A8%8B%E5%A4%A7%E9%A2%98%E7%AF%87-zqy3/</guid>
+            <pubDate>Sun, 20 Jun 2021 02:04:32 GMT</pubDate>
+            <description><![CDATA[超级超级对不起！！！李曾帅在此给你道歉了！！！这两天喝酒吃饭搞傻了，本来那天还记在心里的，后来搞忘记了/(ㄒoㄒ)/ 不知道还来不来得及，真诚向你道歉！！！
+
+阅读理解1：
+答：
+1.首先运行sql文件(假设sql文件存储在E:\TestNode\memmana.sql，数据库账号为root，密码为666666，数据库名为test)，打开mysql命令行输入：
+mys ...]]></description>
+        </item>
+        <item>
+            <title><![CDATA[强化学习价值迭代与桥畅通]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/08/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3%E4%B8%8E%E6%A1%A5%E7%95%85%E9%80%9A-ai4/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2021/06/08/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E4%BB%B7%E5%80%BC%E8%BF%AD%E4%BB%A3%E4%B8%8E%E6%A1%A5%E7%95%85%E9%80%9A-ai4/</guid>
+            <pubDate>Tue, 08 Jun 2021 20:54:58 GMT</pubDate>
+            <description><![CDATA[第一题实际上就是要我们使用强化学习中的价值迭代法来更新完成整个矩阵的权值]]></description>
+            <enclosure url="https://image.leesdog.space/ai410.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[高性能计算之稳态热传导问题的并行解决方案]]></title>
+            <link>https://example.vuepress-theme-blog.billyyyyy3320.com/2020/11/29/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B9%8B%E7%A8%B3%E6%80%81%E7%83%AD%E4%BC%A0%E5%AF%BC%E9%97%AE%E9%A2%98%E7%9A%84%E5%B9%B6%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-paralleliterativemethodsforlinearsystems/</link>
+            <guid>https://example.vuepress-theme-blog.billyyyyy3320.com/2020/11/29/%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97%E4%B9%8B%E7%A8%B3%E6%80%81%E7%83%AD%E4%BC%A0%E5%AF%BC%E9%97%AE%E9%A2%98%E7%9A%84%E5%B9%B6%E8%A1%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-paralleliterativemethodsforlinearsystems/</guid>
+            <pubDate>Sun, 29 Nov 2020 00:27:17 GMT</pubDate>
+            <description><![CDATA[此报告为《高性能计算》这门课的课程报告，这一次的课程最终目标是使用并行的策略利用Jacobi迭代法，Gauss-Seidel 迭代法以及 SOR methods去解决二维稳态热传导问题]]></description>
+            <enclosure url="http://image.leesdog.space/HPSC2.jpg">
+            </enclosure>
+        </item>
+    </channel>
+</rss>
